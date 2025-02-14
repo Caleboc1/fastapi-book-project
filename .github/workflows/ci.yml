@@ -21,12 +21,11 @@ jobs:
         with:
           python-version: "3.12"
 
-     - name: Install dependencies
-  run: |
-    python -m venv venv
-    source venv/bin/activate
-    - run: pip install -r fastapi-book-project/requirements.txt 
-
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r fastapi-book-project/requirements.txt
 
       - name: Run tests
         run: |
@@ -41,3 +40,4 @@ jobs:
     steps:
       - name: Trigger Render Deployment
         run: curl -X POST "$RENDER_DEPLOY_HOOK_URL"
+
